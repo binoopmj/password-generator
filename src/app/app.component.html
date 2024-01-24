@@ -1,0 +1,43 @@
+<div class="w-100 justify-center flex">
+  <div class="border w-96">
+    <h2>Password Generator</h2>
+    <div>
+      <input type="text" value="{{ generatedPassword }}" class="border p-1 m-1">
+    </div>
+
+    <div>
+      <label>Character Length: {{ passwordLength }}</label>
+      <input type="range" [(ngModel)]="passwordLength" width="100%" min="4" max="20" class="w-full" />
+    </div>
+
+    <div>
+      <label>
+        <input type="checkbox" [(ngModel)]="includeNumbers" checked /> Include
+        Numbers
+      </label>
+    </div>
+
+    <div>
+      <label>
+        <input type="checkbox" [(ngModel)]="includeUppercase" /> Include
+        Uppercase
+      </label>
+    </div>
+
+    <div>
+      <label>
+        <input type="checkbox" [(ngModel)]="includeLowercase" /> Include
+        Lowercase
+      </label>
+    </div>
+
+    <div>
+      <label>
+        <input type="checkbox" [(ngModel)]="includeSymbols" /> Include Symbols
+      </label>
+    </div>
+
+    <button class="border p-1 m-1 w-full" (click)="generatePassword()">Generate</button>
+
+  </div>
+</div>
