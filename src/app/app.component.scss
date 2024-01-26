@@ -1,0 +1,44 @@
+.strength-icon {
+  span {
+    width: 7px;
+    height: 18px;
+    display: block;
+    border: 1px solid#fff;
+  }
+  &.strong {
+    span {
+      background: green;
+      border-color: green;
+    }
+  }
+  &.medium {
+    span{
+      background: orange;
+      border-color: orange;
+      &:last-child{
+        border-color: #fff;
+        background: none;
+      }
+    }
+  }
+  &.weak {
+    span{
+      border-color: #fff;
+      background: none;
+      &:first-child, &:nth-child(2){
+        background: rgb(214, 92, 73);
+        border-color: rgb(214, 92, 73);
+      }
+    }
+  }
+  &.veryweak {
+    span{
+      border-color: #fff;
+      background: none;
+      &:first-child{
+        background: red;
+        border-color: red;
+      }
+    }
+  }
+}

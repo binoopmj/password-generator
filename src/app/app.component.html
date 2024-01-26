@@ -1,43 +1,67 @@
-<div class="w-100 justify-center flex">
-  <div class="border w-96">
-    <h2>Password Generator</h2>
-    <div>
-      <input type="text" value="{{ generatedPassword }}" class="border p-1 m-1">
+<div class="w-100 justify-center flex  dark:bg-slate-950 dark:text-white">
+  <div class=" w-96">
+    <h2 class="text-center text-gray-400 my-2">Password Generator</h2>
+    <div class="relative">
+      <input type="text" value="{{ generatedPassword }}"
+        class=" p-2 mb-3 bg-zinc-700 w-full progress slider" id="myRange">
+        <img (click)="copyToClipboard()" src="assets/images/copy-icon.png" alt="" width="15" class="text-white right-2.5 top-2.5 absolute cursor-pointer" title="click to copy">
     </div>
+    <div class="bg-zinc-700 p-3">
+      <div>
+        <div class="flex justify-between"><label>Character Length</label><span class="text-lime-500">{{ passwordLength }}</span></div>
+        <input type="range" [(ngModel)]="passwordLength" width="100%" min="4"
+          max="20" class="w-full" />
+      </div>
 
-    <div>
-      <label>Character Length: {{ passwordLength }}</label>
-      <input type="range" [(ngModel)]="passwordLength" width="100%" min="4" max="20" class="w-full" />
+      <div>
+        <label>
+          <input type="checkbox" [(ngModel)]="includeUppercase" /> Include
+          Uppercase Letters
+        </label>
+      </div>
+
+      <div>
+        <label>
+          <input type="checkbox" [(ngModel)]="includeLowercase" /> Include
+          Lowercase Letters
+        </label>
+      </div>
+
+      <div>
+        <label>
+          <input type="checkbox" [(ngModel)]="includeNumbers" checked /> Include
+          Numbers
+        </label>
+      </div>
+
+      <div>
+        <label>
+          <input type="checkbox" [(ngModel)]="includeSymbols" /> Include Symbols
+        </label>
+      </div>
+
+      <div class="flex align-middle p-2 my-2 uppercase justify-between dark:bg-slate-950 dark:text-white">
+        <div class="text-slate-400">
+          strength
+        </div>
+        <div class="flex align-middle place-content-center" *ngIf="strength">
+          <ng-container >
+            <span *ngIf="strength == 'veryweak'; else elseTemp">very weak</span>
+            <ng-template #elseTemp><span>{{strength}}</span></ng-template>
+          </ng-container>
+          
+          <div class="strength-icon ml-1 flex items-center place-content-center flex-nowrap group [&_span]:d-block [&_span]:mr-1 [&_span]:dark:bg-white" ngClass="{{strength}}">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+        
+      </div>
+
+      <button class="border p-1 m-1 w-full uppercase border-lime-500 text-lime-500"
+        (click)="generatePassword()">Generate</button>
     </div>
-
-    <div>
-      <label>
-        <input type="checkbox" [(ngModel)]="includeNumbers" checked /> Include
-        Numbers
-      </label>
-    </div>
-
-    <div>
-      <label>
-        <input type="checkbox" [(ngModel)]="includeUppercase" /> Include
-        Uppercase
-      </label>
-    </div>
-
-    <div>
-      <label>
-        <input type="checkbox" [(ngModel)]="includeLowercase" /> Include
-        Lowercase
-      </label>
-    </div>
-
-    <div>
-      <label>
-        <input type="checkbox" [(ngModel)]="includeSymbols" /> Include Symbols
-      </label>
-    </div>
-
-    <button class="border p-1 m-1 w-full" (click)="generatePassword()">Generate</button>
-
   </div>
 </div>
