@@ -48,13 +48,7 @@ export class AppComponent {
       if (this.includeNumbers && this.includeUppercase && this.includeLowercase && this.includeSymbols && this.passwordLength > 8) {
         return 'strong';
       }
-      if (this.includeNumbers && this.includeUppercase && this.includeLowercase && this.includeSymbols) {
-        return 'medium';
-      }
-      if (this.includeNumbers && this.includeUppercase && this.includeLowercase && this.includeSymbols && this.passwordLength < 4) {
-        return 'weak';
-      }
-      else if (this.includeNumbers && this.includeUppercase ) {
+      if (this.includeNumbers && this.includeUppercase && this.includeLowercase && this.passwordLength > 8) {
         return 'medium';
       }
       else if (this.includeNumbers && this.includeLowercase ) {
@@ -62,6 +56,9 @@ export class AppComponent {
       }
       else if (this.includeNumbers && this.includeSymbols) {
         return 'medium';
+      }
+      else if (this.includeNumbers && this.includeUppercase ) {
+        return 'weak';
       }
       else if (this.passwordLength > 8 ){
         return 'medium';

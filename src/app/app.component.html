@@ -1,4 +1,4 @@
-<div class="w-100 justify-center flex  dark:bg-slate-950 dark:text-white">
+<div class="w-100 h-full py-10 font-mono text-sm justify-center flex  dark:bg-slate-950 dark:text-white">
   <div class=" w-96">
     <h2 class="text-center text-gray-400 my-2">Password Generator</h2>
     <div class="relative">
@@ -7,36 +7,40 @@
         <img (click)="copyToClipboard()" src="assets/images/copy-icon.png" alt="" width="15" class="text-white right-2.5 top-2.5 absolute cursor-pointer" title="click to copy">
     </div>
     <div class="bg-zinc-700 p-3">
-      <div>
-        <div class="flex justify-between"><label>Character Length</label><span class="text-lime-500">{{ passwordLength }}</span></div>
+      <div class="mb-2">
+        <div class="flex justify-between mb-2 items-center"><label>Character Length</label><span class="text-lime-400 text-lg">{{ passwordLength }}</span></div>
         <input type="range" [(ngModel)]="passwordLength" width="100%" min="4"
           max="20" class="w-full" />
       </div>
 
       <div>
-        <label>
+        <label class="checkbox-container">
           <input type="checkbox" [(ngModel)]="includeUppercase" /> Include
           Uppercase Letters
+          <span class="checkmark"></span>
         </label>
       </div>
 
       <div>
-        <label>
+        <label class="checkbox-container">
           <input type="checkbox" [(ngModel)]="includeLowercase" /> Include
           Lowercase Letters
+          <span class="checkmark"></span>
         </label>
       </div>
 
       <div>
-        <label>
+        <label class="checkbox-container">
           <input type="checkbox" [(ngModel)]="includeNumbers" checked /> Include
           Numbers
+          <span class="checkmark"></span>
         </label>
       </div>
 
       <div>
-        <label>
+        <label class="checkbox-container">
           <input type="checkbox" [(ngModel)]="includeSymbols" /> Include Symbols
+          <span class="checkmark"></span>
         </label>
       </div>
 
@@ -60,7 +64,7 @@
         
       </div>
 
-      <button class="border p-1 m-1 w-full uppercase border-lime-500 text-lime-500"
+      <button class="border p-1 m-1 w-full uppercase border-lime-500 text-lime-400"
         (click)="generatePassword()">Generate</button>
     </div>
   </div>
